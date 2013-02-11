@@ -118,7 +118,7 @@ module Proxy::DNS
 				@logger_msg = "unable to find kerberos ticket. Trying to aquire a valid TGT..."
 				@raise_msg = "unable to find kerberos ticket. Trying to aquire a valid TGT..."
 			else
-				@format = "%d/%m/%y %H:%M"
+				@format = "%d/%m/%y %H:%M:%S"
 				@krbexp = `klist | grep #{SETTINGS.dns_tsig_realm} | grep '/' | awk -F ' ' '{print $3,$4}'`
 				@exp = DateTime.strptime(@krbexp, @format)
 				@now = DateTime.now
